@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95cd810fd05041dfaa595ceec5b403f2" Name="Diagram1">
+        <EntityTypeShape EntityType="DbModel.AreaComun" Width="1.5" PointX="6" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Condominio" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Departamento" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Detalle_recibo" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.EstadoRecibo" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Gasto" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Proveedor" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Recibo" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Reserva" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Rol" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.TipoArea" Width="1.5" PointX="3.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.TipoDocumento" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Torre" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Usuario" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="DbModel.areacomun_tipoarea_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.reserva_areacomun_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gasto_condominio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.torre_condominio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.departamento_torre_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.departamento_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.departamento_usuario_fkv2" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gasto_departamento_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.recibo_departamento_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.detalle_recibo_gasto_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.detalle_recibo_recibo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.detalle_recibo_reserva_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.recibo_estadorecibo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gasto_proveedor_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gasto_torre_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.proveedor_tipodocumento_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.recibo_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.recibo_usuario_fkv2" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.reserva_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.usuario_rol_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.usuario_tipodocumento_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

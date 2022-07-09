@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AreaComun">
+    <Key>
+      <PropertyRef Name="idareacomun" />
+    </Key>
+    <Property Name="idareacomun" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdTipoArea" Type="Int32" Nullable="false" />
+    <Property Name="IdCondominio" Type="Int32" Nullable="false" />
+    <Property Name="IdTorre" Type="Int32" />
+    <Property Name="NroPiso" Type="Int32" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TipoArea" Relationship="Self.areacomun_tipoarea_fk" FromRole="AreaComun" ToRole="TipoArea" />
+    <NavigationProperty Name="Reserva" Relationship="Self.reserva_areacomun_fk" FromRole="AreaComun" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Condominio">
+    <Key>
+      <PropertyRef Name="idcondominio" />
+    </Key>
+    <Property Name="idcondominio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gasto" Relationship="Self.gasto_condominio_fk" FromRole="Condominio" ToRole="Gasto" />
+    <NavigationProperty Name="Torre" Relationship="Self.torre_condominio_fk" FromRole="Condominio" ToRole="Torre" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="iddepartamento" />
+    </Key>
+    <Property Name="iddepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="IdTorre" Type="Int32" Nullable="false" />
+    <Property Name="NroPiso" Type="Int32" Nullable="false" />
+    <Property Name="Area" Type="Int64" />
+    <Property Name="NroHabitaciones" Type="Int32" />
+    <Property Name="NroBanios" Type="Int32" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="IdPropietario" Type="Int32" />
+    <Property Name="IdInquilino" Type="Int32" />
+    <Property Name="BloqueoMorosidad" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Torre" Relationship="Self.departamento_torre_fk" FromRole="Departamento" ToRole="Torre" />
+    <NavigationProperty Name="Usuario" Relationship="Self.departamento_usuario_fk" FromRole="Departamento" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.departamento_usuario_fkv2" FromRole="Departamento" ToRole="Usuario" />
+    <NavigationProperty Name="Gasto" Relationship="Self.gasto_departamento_fk" FromRole="Departamento" ToRole="Gasto" />
+    <NavigationProperty Name="Recibo" Relationship="Self.recibo_departamento_fk" FromRole="Departamento" ToRole="Recibo" />
+  </EntityType>
+  <EntityType Name="Detalle_recibo">
+    <Key>
+      <PropertyRef Name="iddetalle" />
+      <PropertyRef Name="idrecibo" />
+    </Key>
+    <Property Name="iddetalle" Type="Int32" Nullable="false" />
+    <Property Name="idrecibo" Type="Int32" Nullable="false" />
+    <Property Name="idreserva" Type="Int32" />
+    <Property Name="idgasto" Type="Int32" />
+    <Property Name="porcentajegasto" Type="Decimal" Precision="17" Scale="2" />
+    <Property Name="montosoles" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gasto" Relationship="Self.detalle_recibo_gasto_fk" FromRole="Detalle_recibo" ToRole="Gasto" />
+    <NavigationProperty Name="Recibo" Relationship="Self.detalle_recibo_recibo_fk" FromRole="Detalle_recibo" ToRole="Recibo" />
+    <NavigationProperty Name="Reserva" Relationship="Self.detalle_recibo_reserva_fk" FromRole="Detalle_recibo" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="EstadoRecibo">
+    <Key>
+      <PropertyRef Name="idestadorecibo" />
+    </Key>
+    <Property Name="idestadorecibo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Recibo" Relationship="Self.recibo_estadorecibo_fk" FromRole="EstadoRecibo" ToRole="Recibo" />
+  </EntityType>
+  <EntityType Name="Gasto">
+    <Key>
+      <PropertyRef Name="idgasto" />
+    </Key>
+    <Property Name="idgasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+    <Property Name="FechaGasto" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+    <Property Name="TipoGasto" Type="Int32" Nullable="false" />
+    <Property Name="TipoCalculo" Type="Int32" Nullable="false" />
+    <Property Name="IdCondominio" Type="Int32" Nullable="false" />
+    <Property Name="IdTorre" Type="Int32" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="montosoles" Type="Decimal" Precision="17" Scale="2" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Condominio" Relationship="Self.gasto_condominio_fk" FromRole="Gasto" ToRole="Condominio" />
+    <NavigationProperty Name="Departamento" Relationship="Self.gasto_departamento_fk" FromRole="Gasto" ToRole="Departamento" />
+    <NavigationProperty Name="Detalle_recibo" Relationship="Self.detalle_recibo_gasto_fk" FromRole="Gasto" ToRole="Detalle_recibo" />
+    <NavigationProperty Name="Proveedor" Relationship="Self.gasto_proveedor_fk" FromRole="Gasto" ToRole="Proveedor" />
+    <NavigationProperty Name="Torre" Relationship="Self.gasto_torre_fk" FromRole="Gasto" ToRole="Torre" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="idproveedor" />
+    </Key>
+    <Property Name="idproveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RazonSocial" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdTipoDocumento" Type="Int32" Nullable="false" />
+    <Property Name="nrodocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gasto" Relationship="Self.gasto_proveedor_fk" FromRole="Proveedor" ToRole="Gasto" />
+    <NavigationProperty Name="TipoDocumento" Relationship="Self.proveedor_tipodocumento_fk" FromRole="Proveedor" ToRole="TipoDocumento" />
+  </EntityType>
+  <EntityType Name="Recibo">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+    </Key>
+    <Property Name="idrecibo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaRecibo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Periodo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MontoTotalSoles" Type="Decimal" Precision="17" Scale="2" Nullable="false" />
+    <Property Name="IdPropietario" Type="Int32" Nullable="false" />
+    <Property Name="IdInquilino" Type="Int32" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="IdEstadoRecibo" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Departamento" Relationship="Self.recibo_departamento_fk" FromRole="Recibo" ToRole="Departamento" />
+    <NavigationProperty Name="Detalle_recibo" Relationship="Self.detalle_recibo_recibo_fk" FromRole="Recibo" ToRole="Detalle_recibo" />
+    <NavigationProperty Name="EstadoRecibo" Relationship="Self.recibo_estadorecibo_fk" FromRole="Recibo" ToRole="EstadoRecibo" />
+    <NavigationProperty Name="Usuario" Relationship="Self.recibo_usuario_fk" FromRole="Recibo" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.recibo_usuario_fkv2" FromRole="Recibo" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="idreserva" />
+    </Key>
+    <Property Name="idreserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaReserva" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraFin" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="IdAreaComun" Type="Int32" Nullable="false" />
+    <Property Name="Usuario_IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AreaComun" Relationship="Self.reserva_areacomun_fk" FromRole="Reserva" ToRole="AreaComun" />
+    <NavigationProperty Name="Detalle_recibo" Relationship="Self.detalle_recibo_reserva_fk" FromRole="Reserva" ToRole="Detalle_recibo" />
+    <NavigationProperty Name="Usuario" Relationship="Self.reserva_usuario_fk" FromRole="Reserva" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Usuario" Relationship="Self.usuario_rol_fk" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoArea">
+    <Key>
+      <PropertyRef Name="idtipoarea" />
+    </Key>
+    <Property Name="idtipoarea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoReserva" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoraApertura" Type="Time" Precision="7" />
+    <Property Name="HoraCierre" Type="Time" Precision="7" />
+    <Property Name="CantidadMaxima" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AreaComun" Relationship="Self.areacomun_tipoarea_fk" FromRole="TipoArea" ToRole="AreaComun" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="idtipodocumento" />
+    </Key>
+    <Property Name="idtipodocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Proveedor" Relationship="Self.proveedor_tipodocumento_fk" FromRole="TipoDocumento" ToRole="Proveedor" />
+    <NavigationProperty Name="Usuario" Relationship="Self.usuario_tipodocumento_fk" FromRole="TipoDocumento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Torre">
+    <Key>
+      <PropertyRef Name="idtorre" />
+    </Key>
+    <Property Name="idtorre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdCondominio" Type="Int32" Nullable="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Condominio" Relationship="Self.torre_condominio_fk" FromRole="Torre" ToRole="Condominio" />
+    <NavigationProperty Name="Departamento" Relationship="Self.departamento_torre_fk" FromRole="Torre" ToRole="Departamento" />
+    <NavigationProperty Name="Gasto" Relationship="Self.gasto_torre_fk" FromRole="Torre" ToRole="Gasto" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdTipoDocumento" Type="Int32" Nullable="false" />
+    <Property Name="NroDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Idrol" Type="Int32" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuariocreacion" Type="Int32" />
+    <Property Name="fechacreacion" Type="DateTime" Precision="0" />
+    <Property Name="usuariomodificacion" Type="Int32" />
+    <Property Name="fechamodificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Departamento" Relationship="Self.departamento_usuario_fk" FromRole="Usuario" ToRole="Departamento" />
+    <NavigationProperty Name="Departamento1" Relationship="Self.departamento_usuario_fkv2" FromRole="Usuario" ToRole="Departamento" />
+    <NavigationProperty Name="Recibo" Relationship="Self.recibo_usuario_fk" FromRole="Usuario" ToRole="Recibo" />
+    <NavigationProperty Name="Recibo1" Relationship="Self.recibo_usuario_fkv2" FromRole="Usuario" ToRole="Recibo" />
+    <NavigationProperty Name="Reserva" Relationship="Self.reserva_usuario_fk" FromRole="Usuario" ToRole="Reserva" />
+    <NavigationProperty Name="Rol" Relationship="Self.usuario_rol_fk" FromRole="Usuario" ToRole="Rol" />
+    <NavigationProperty Name="TipoDocumento" Relationship="Self.usuario_tipodocumento_fk" FromRole="Usuario" ToRole="TipoDocumento" />
+  </EntityType>
+  <Association Name="areacomun_tipoarea_fk">
+    <End Role="TipoArea" Type="Self.TipoArea" Multiplicity="1" />
+    <End Role="AreaComun" Type="Self.AreaComun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArea">
+        <PropertyRef Name="idtipoarea" />
+      </Principal>
+      <Dependent Role="AreaComun">
+        <PropertyRef Name="IdTipoArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reserva_areacomun_fk">
+    <End Role="AreaComun" Type="Self.AreaComun" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AreaComun">
+        <PropertyRef Name="idareacomun" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="IdAreaComun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="gasto_condominio_fk">
+    <End Role="Condominio" Type="Self.Condominio" Multiplicity="1" />
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condominio">
+        <PropertyRef Name="idcondominio" />
+      </Principal>
+      <Dependent Role="Gasto">
+        <PropertyRef Name="IdCondominio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="torre_condominio_fk">
+    <End Role="Condominio" Type="Self.Condominio" Multiplicity="1" />
+    <End Role="Torre" Type="Self.Torre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condominio">
+        <PropertyRef Name="idcondominio" />
+      </Principal>
+      <Dependent Role="Torre">
+        <PropertyRef Name="IdCondominio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="departamento_torre_fk">
+    <End Role="Torre" Type="Self.Torre" Multiplicity="1" />
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Torre">
+        <PropertyRef Name="idtorre" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="IdTorre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="departamento_usuario_fk">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="IdPropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="departamento_usuario_fkv2">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="IdInquilino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="gasto_departamento_fk">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="iddepartamento" />
+      </Principal>
+      <Dependent Role="Gasto">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="recibo_departamento_fk">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Recibo" Type="Self.Recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="iddepartamento" />
+      </Principal>
+      <Dependent Role="Recibo">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="detalle_recibo_gasto_fk">
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="0..1" />
+    <End Role="Detalle_recibo" Type="Self.Detalle_recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto">
+        <PropertyRef Name="idgasto" />
+      </Principal>
+      <Dependent Role="Detalle_recibo">
+        <PropertyRef Name="idgasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="detalle_recibo_recibo_fk">
+    <End Role="Recibo" Type="Self.Recibo" Multiplicity="1" />
+    <End Role="Detalle_recibo" Type="Self.Detalle_recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recibo">
+        <PropertyRef Name="idrecibo" />
+      </Principal>
+      <Dependent Role="Detalle_recibo">
+        <PropertyRef Name="idrecibo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="detalle_recibo_reserva_fk">
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
+    <End Role="Detalle_recibo" Type="Self.Detalle_recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reserva">
+        <PropertyRef Name="idreserva" />
+      </Principal>
+      <Dependent Role="Detalle_recibo">
+        <PropertyRef Name="idreserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="recibo_estadorecibo_fk">
+    <End Role="EstadoRecibo" Type="Self.EstadoRecibo" Multiplicity="1" />
+    <End Role="Recibo" Type="Self.Recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoRecibo">
+        <PropertyRef Name="idestadorecibo" />
+      </Principal>
+      <Dependent Role="Recibo">
+        <PropertyRef Name="IdEstadoRecibo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="gasto_proveedor_fk">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idproveedor" />
+      </Principal>
+      <Dependent Role="Gasto">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="gasto_torre_fk">
+    <End Role="Torre" Type="Self.Torre" Multiplicity="1" />
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Torre">
+        <PropertyRef Name="idtorre" />
+      </Principal>
+      <Dependent Role="Gasto">
+        <PropertyRef Name="IdTorre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proveedor_tipodocumento_fk">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="idtipodocumento" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="recibo_usuario_fk">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Recibo" Type="Self.Recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="Recibo">
+        <PropertyRef Name="IdPropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="recibo_usuario_fkv2">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Recibo" Type="Self.Recibo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="Recibo">
+        <PropertyRef Name="IdInquilino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reserva_usuario_fk">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="Usuario_IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="usuario_rol_fk">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="usuario_tipodocumento_fk">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="idtipodocumento" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AreaComun" EntityType="Self.AreaComun" />
+    <EntitySet Name="Condominio" EntityType="Self.Condominio" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+    <EntitySet Name="Detalle_recibo" EntityType="Self.Detalle_recibo" />
+    <EntitySet Name="EstadoRecibo" EntityType="Self.EstadoRecibo" />
+    <EntitySet Name="Gasto" EntityType="Self.Gasto" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+    <EntitySet Name="Recibo" EntityType="Self.Recibo" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TipoArea" EntityType="Self.TipoArea" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" />
+    <EntitySet Name="Torre" EntityType="Self.Torre" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="areacomun_tipoarea_fk" Association="Self.areacomun_tipoarea_fk">
+      <End Role="TipoArea" EntitySet="TipoArea" />
+      <End Role="AreaComun" EntitySet="AreaComun" />
+    </AssociationSet>
+    <AssociationSet Name="reserva_areacomun_fk" Association="Self.reserva_areacomun_fk">
+      <End Role="AreaComun" EntitySet="AreaComun" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="gasto_condominio_fk" Association="Self.gasto_condominio_fk">
+      <End Role="Condominio" EntitySet="Condominio" />
+      <End Role="Gasto" EntitySet="Gasto" />
+    </AssociationSet>
+    <AssociationSet Name="torre_condominio_fk" Association="Self.torre_condominio_fk">
+      <End Role="Condominio" EntitySet="Condominio" />
+      <End Role="Torre" EntitySet="Torre" />
+    </AssociationSet>
+    <AssociationSet Name="departamento_torre_fk" Association="Self.departamento_torre_fk">
+      <End Role="Torre" EntitySet="Torre" />
+      <End Role="Departamento" EntitySet="Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="departamento_usuario_fk" Association="Self.departamento_usuario_fk">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Departamento" EntitySet="Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="departamento_usuario_fkv2" Association="Self.departamento_usuario_fkv2">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Departamento" EntitySet="Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="gasto_departamento_fk" Association="Self.gasto_departamento_fk">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Gasto" EntitySet="Gasto" />
+    </AssociationSet>
+    <AssociationSet Name="recibo_departamento_fk" Association="Self.recibo_departamento_fk">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Recibo" EntitySet="Recibo" />
+    </AssociationSet>
+    <AssociationSet Name="detalle_recibo_gasto_fk" Association="Self.detalle_recibo_gasto_fk">
+      <End Role="Gasto" EntitySet="Gasto" />
+      <End Role="Detalle_recibo" EntitySet="Detalle_recibo" />
+    </AssociationSet>
+    <AssociationSet Name="detalle_recibo_recibo_fk" Association="Self.detalle_recibo_recibo_fk">
+      <End Role="Recibo" EntitySet="Recibo" />
+      <End Role="Detalle_recibo" EntitySet="Detalle_recibo" />
+    </AssociationSet>
+    <AssociationSet Name="detalle_recibo_reserva_fk" Association="Self.detalle_recibo_reserva_fk">
+      <End Role="Reserva" EntitySet="Reserva" />
+      <End Role="Detalle_recibo" EntitySet="Detalle_recibo" />
+    </AssociationSet>
+    <AssociationSet Name="recibo_estadorecibo_fk" Association="Self.recibo_estadorecibo_fk">
+      <End Role="EstadoRecibo" EntitySet="EstadoRecibo" />
+      <End Role="Recibo" EntitySet="Recibo" />
+    </AssociationSet>
+    <AssociationSet Name="gasto_proveedor_fk" Association="Self.gasto_proveedor_fk">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Gasto" EntitySet="Gasto" />
+    </AssociationSet>
+    <AssociationSet Name="gasto_torre_fk" Association="Self.gasto_torre_fk">
+      <End Role="Torre" EntitySet="Torre" />
+      <End Role="Gasto" EntitySet="Gasto" />
+    </AssociationSet>
+    <AssociationSet Name="proveedor_tipodocumento_fk" Association="Self.proveedor_tipodocumento_fk">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="recibo_usuario_fk" Association="Self.recibo_usuario_fk">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Recibo" EntitySet="Recibo" />
+    </AssociationSet>
+    <AssociationSet Name="recibo_usuario_fkv2" Association="Self.recibo_usuario_fkv2">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Recibo" EntitySet="Recibo" />
+    </AssociationSet>
+    <AssociationSet Name="reserva_usuario_fk" Association="Self.reserva_usuario_fk">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="usuario_rol_fk" Association="Self.usuario_rol_fk">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="usuario_tipodocumento_fk" Association="Self.usuario_tipodocumento_fk">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

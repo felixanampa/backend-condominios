@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="DbEntities">
+    <EntitySetMapping Name="AreaComun">
+      <EntityTypeMapping TypeName="DbModel.AreaComun">
+        <MappingFragment StoreEntitySet="AreaComun">
+          <ScalarProperty Name="idareacomun" ColumnName="idareacomun" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoArea" ColumnName="IdTipoArea" />
+          <ScalarProperty Name="IdCondominio" ColumnName="IdCondominio" />
+          <ScalarProperty Name="IdTorre" ColumnName="IdTorre" />
+          <ScalarProperty Name="NroPiso" ColumnName="NroPiso" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Condominio">
+      <EntityTypeMapping TypeName="DbModel.Condominio">
+        <MappingFragment StoreEntitySet="Condominio">
+          <ScalarProperty Name="idcondominio" ColumnName="idcondominio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="DbModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+          <ScalarProperty Name="NumDepartamento" ColumnName="NumDepartamento" />
+          <ScalarProperty Name="IdTorre" ColumnName="IdTorre" />
+          <ScalarProperty Name="NroPiso" ColumnName="NroPiso" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="NroHabitaciones" ColumnName="NroHabitaciones" />
+          <ScalarProperty Name="NroBanios" ColumnName="NroBanios" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdPropietario" ColumnName="IdPropietario" />
+          <ScalarProperty Name="IdInquilino" ColumnName="IdInquilino" />
+          <ScalarProperty Name="BloqueoMorosidad" ColumnName="BloqueoMorosidad" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_recibo">
+      <EntityTypeMapping TypeName="DbModel.Detalle_recibo">
+        <MappingFragment StoreEntitySet="Detalle_recibo">
+          <ScalarProperty Name="iddetalle" ColumnName="iddetalle" />
+          <ScalarProperty Name="idrecibo" ColumnName="idrecibo" />
+          <ScalarProperty Name="idreserva" ColumnName="idreserva" />
+          <ScalarProperty Name="idgasto" ColumnName="idgasto" />
+          <ScalarProperty Name="porcentajegasto" ColumnName="porcentajegasto" />
+          <ScalarProperty Name="montosoles" ColumnName="montosoles" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoRecibo">
+      <EntityTypeMapping TypeName="DbModel.EstadoRecibo">
+        <MappingFragment StoreEntitySet="EstadoRecibo">
+          <ScalarProperty Name="idestadorecibo" ColumnName="idestadorecibo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gasto">
+      <EntityTypeMapping TypeName="DbModel.Gasto">
+        <MappingFragment StoreEntitySet="Gasto">
+          <ScalarProperty Name="idgasto" ColumnName="idgasto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="FechaGasto" ColumnName="FechaGasto" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="TipoGasto" ColumnName="TipoGasto" />
+          <ScalarProperty Name="TipoCalculo" ColumnName="TipoCalculo" />
+          <ScalarProperty Name="IdCondominio" ColumnName="IdCondominio" />
+          <ScalarProperty Name="IdTorre" ColumnName="IdTorre" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="montosoles" ColumnName="montosoles" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="DbModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="idproveedor" ColumnName="idproveedor" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="nrodocumento" ColumnName="nrodocumento" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recibo">
+      <EntityTypeMapping TypeName="DbModel.Recibo">
+        <MappingFragment StoreEntitySet="Recibo">
+          <ScalarProperty Name="idrecibo" ColumnName="idrecibo" />
+          <ScalarProperty Name="FechaRecibo" ColumnName="FechaRecibo" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="MontoTotalSoles" ColumnName="MontoTotalSoles" />
+          <ScalarProperty Name="IdPropietario" ColumnName="IdPropietario" />
+          <ScalarProperty Name="IdInquilino" ColumnName="IdInquilino" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdEstadoRecibo" ColumnName="IdEstadoRecibo" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reserva">
+      <EntityTypeMapping TypeName="DbModel.Reserva">
+        <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="idreserva" ColumnName="idreserva" />
+          <ScalarProperty Name="FechaReserva" ColumnName="FechaReserva" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="IdAreaComun" ColumnName="IdAreaComun" />
+          <ScalarProperty Name="Usuario_IdUsuario" ColumnName="Usuario_IdUsuario" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="DbModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoArea">
+      <EntityTypeMapping TypeName="DbModel.TipoArea">
+        <MappingFragment StoreEntitySet="TipoArea">
+          <ScalarProperty Name="idtipoarea" ColumnName="idtipoarea" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TipoReserva" ColumnName="TipoReserva" />
+          <ScalarProperty Name="HoraApertura" ColumnName="HoraApertura" />
+          <ScalarProperty Name="HoraCierre" ColumnName="HoraCierre" />
+          <ScalarProperty Name="CantidadMaxima" ColumnName="CantidadMaxima" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumento">
+      <EntityTypeMapping TypeName="DbModel.TipoDocumento">
+        <MappingFragment StoreEntitySet="TipoDocumento">
+          <ScalarProperty Name="idtipodocumento" ColumnName="idtipodocumento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Torre">
+      <EntityTypeMapping TypeName="DbModel.Torre">
+        <MappingFragment StoreEntitySet="Torre">
+          <ScalarProperty Name="idtorre" ColumnName="idtorre" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCondominio" ColumnName="IdCondominio" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DbModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="NroDocumento" ColumnName="NroDocumento" />
+          <ScalarProperty Name="Idrol" ColumnName="Idrol" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usuariocreacion" ColumnName="usuariocreacion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="usuariomodificacion" ColumnName="usuariomodificacion" />
+          <ScalarProperty Name="fechamodificacion" ColumnName="fechamodificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

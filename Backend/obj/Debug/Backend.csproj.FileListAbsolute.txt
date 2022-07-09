@@ -1,0 +1,12 @@
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\Backend.dll.config
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\Backend.dll
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\Backend.pdb
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\EntityFramework.dll
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\EntityFramework.SqlServer.dll
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\EntityFramework.xml
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\bin\EntityFramework.SqlServer.xml
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\obj\Debug\Backend.csproj.CopyComplete
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\obj\Debug\Backend.dll
+C:\Users\felix\OneDrive\Escritorio\PryFinalDSD\Backend\Backend\obj\Debug\Backend.pdb
